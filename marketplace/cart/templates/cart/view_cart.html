@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Carrito de Compras{% endblock %}
+
+{% block content %}
+<h2>Tu Carrito</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.item.name }}</td>
+            <td>${{ item.item.price }}</td>
+            <td>
+                {{ item.quantity }}
+                <a href="{% url 'cart_increase' item.id %}" class="btn btn-success btn-sm">+</a>
+                <a href="{% url 'cart_decrease' item.id %}" class="btn btn-warning btn-sm">-</a>
+            </td>
+            <td>${{ item.subtotal }}</td>
+            <td>
+                <a href="{% url 'cart_remove' item.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h4>Total: ${{ total }}</h4>
+{% endblock %}

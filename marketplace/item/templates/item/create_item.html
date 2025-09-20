@@ -1,0 +1,39 @@
+<!--plantilla para crear un nuevo producto-->
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Vender Producto{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">hola un Nuevo Producto</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            {{ form.name.label_tag }}
+            {{ form.name }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.price.label_tag }} 
+            {{ form.price }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.description.label_tag }}
+            {{ form.description }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.image.label_tag }}
+            {{ form.image }}
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Vender Producto
+        </button>
+    </form>
+</div>
+{% endblock %}
