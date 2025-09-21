@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Cart, CartItem
 from item.models import Item
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect
+from django.shortcuts import render
 
 def set_currency(request, currency_code):
     request.session['currency'] = currency_code
@@ -54,6 +54,12 @@ def increase_quantity(request, item_id):
     cart_item.quantity += 1
     cart_item.save()
     return redirect('view_cart')
+
+@login_required
+def checkout(request):
+# Aquí luego puedes integrar pasarelas de pago (PayPal, Stripe, etc.)
+    return render(request, 'cart/checkout.html')
+
 
 # Función para disminuir cantidad
 @login_required(login_url='/accounts/login/')

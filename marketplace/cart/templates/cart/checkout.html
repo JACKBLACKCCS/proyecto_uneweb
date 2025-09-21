@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h2>✅ Gracias por tu compra</h2>
+    <p>Tu pedido ha sido procesado con éxito.</p>
+    <a href="{% url 'item_list' %}" class="btn btn-primary mt-3">Seguir comprando</a>
+</div>
+{% endblock %}
