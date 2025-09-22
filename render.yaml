@@ -15,12 +15,7 @@ services:
         value: 3.11
       - key: SECRET_KEY
         generateValue: true
-      - key: DJANGO_SUPERUSER_USERNAME
-        value: Moises
-      - key: DJANGO_SUPERUSER_EMAIL
-        value: velll@gmail.com
-      - key: DJANGO_SUPERUSER_PASSWORD
-        value: 1121candy*
+      # Las credenciales del superusuario las pondrás directo en Render
     region: oregon
     buildCommand: |
       pip install -r requirements.txt
