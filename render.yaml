@@ -1,6 +1,6 @@
 version: "1"
 services:
-  # Tu servicio web existente - CORREGIDO
+  # Tu servicio web existente - ACTUALIZADO
   - type: web
     name: proyecto_unewed
     runtime: python
@@ -9,14 +9,18 @@ services:
     envVars:
     - key: DATABASE_URL
       fromDatabase:
-        name: marketplace  #  NOMBRE CORRECTO DE LA BASE DE DATOS
+        name: marketplace  # ✅ NOMBRE CORRECTO
         property: connectionString
     - key: PYTHON_VERSION
       value: 3.11
     - key: SECRET_KEY
       generateValue: true
     region: oregon
-    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --no-input && python manage.py migrate
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --no-input
+      python manage.py migrate
+      python create_superuser.py  # ✅ NUEVA LÍNEA PARA CREAR SUPERUSUARIO
     startCommand: gunicorn marketplace.wsgi:application
 
   # Servicio pgAdmin
