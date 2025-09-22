@@ -194,3 +194,26 @@ if not DEBUG:
     
     # Configure WhiteNoise for media files in production
     WHITENOISE_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# =============================================================================
+# SUPERUSER AUTOMÁTICO PARA RENDER - ELIMINAR DESPUÉS DE USAR
+# =============================================================================
+import os
+if os.environ.get('RENDER'):
+    try:
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+        
+        # Crear superusuario si no existe
+        if not User.objects.filter(username='Moises').exists():
+            User.objects.create_superuser(
+                username='Moises',
+                email='velll@gmail.com', 
+                password='1121candy*'
+            )
+            print("✅ Superuser 'Moises' creado automáticamente desde settings.py")
+        else:
+            print("⚠️  El superusuario 'Moises' ya existe")
+    except Exception as e:
+        print(f"❌ Error creando superuser: {e}")
