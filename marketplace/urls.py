@@ -25,15 +25,17 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Include your app URLs here
-    # path('conversation/', include('conversation.urls')),  # Comment if not ready
-    # Add your other app URLs
+    # URLs DE CORE
+    path('', include('item.urls')),
+    path('cart/', include('cart.urls')),
+    path('accounts/', include('accounts.urls')),
+    # path('conversation/', include('conversation.urls')),  # Comentado temporalmente
 ]
 
-# Serve media files in both development and production
+# IMPORTANTE: Servir archivos media en AMBOS entornos (desarrollo y producción)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-# Serve static files in development
+# Servir archivos static en desarrollo (en producción los sirve WhiteNoise)
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
