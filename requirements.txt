@@ -1,10 +1,6 @@
 asgiref==3.9.1
 Django==5.2.6
 dj-database-url==3.0.1
-django-storages==1.13.2
-boto3==1.28.6
-botocore==1.31.6
-certifi==2024.6.3
 gunicorn==23.0.0
 Pillow==10.0.0
 django-filter==23.1
@@ -13,3 +9,4 @@ djangorestframework==3.14.0
 whitenoise==6.11.0
 psycopg2-binary==2.9.10
 sqlparse==0.5.3
+certifi==2024.8.30  
