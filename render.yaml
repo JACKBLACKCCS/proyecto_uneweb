@@ -17,10 +17,10 @@ services:
       generateValue: true
     region: oregon
     buildCommand: |
-      pip install -r requirements.txt
-      python manage.py collectstatic --no-input
-      python manage.py migrate
-      python create_superuser.py  # ✅ NUEVA LÍNEA PARA CREAR SUPERUSUARIO
+     pip install -r requirements.txt
+     python manage.py collectstatic --no-input
+     python manage.py migrate
+     python create_superuser.py
     startCommand: gunicorn marketplace.wsgi:application
 
   # Servicio pgAdmin
