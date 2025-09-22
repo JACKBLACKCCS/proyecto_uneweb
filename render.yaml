@@ -1,0 +1,17 @@
+# Exported from Render on 2025-09-22T07:28:44Z
+version: "1"
+services:
+- type: web
+  name: proyecto_unewed
+  runtime: python
+  repo: https://github.com/JACKBLACKCCS/proyecto_unewed
+  plan: free
+  envVars:
+  - key: DATABASE_URL
+    sync: false
+  - key: PYTHON_VERSION
+    sync: false
+  region: oregon
+  buildCommand: pip install -r requirements.txt && python manage.py collectstatic --no-input && python manage.py migrate
+  startCommand: gunicorn marketplace.wsgi:application
+  autoDeployTrigger: commit
