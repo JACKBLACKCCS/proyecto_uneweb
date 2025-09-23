@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
+ <style>
     :root {
       --primary-color: #532251;
       --secondary-color: #0b8793;
@@ -211,29 +211,27 @@
       font-size: 0.8rem;
       font-weight: 600;
     }
-    
-    .search-bar {
-      max-width: 500px;
-      margin: 0 auto 2rem;
-    }
-    
-    .search-bar .form-control {
-      border-radius: 50px;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .search-bar .btn {
-      border-radius: 50px;
-      padding: 0.8rem 1.5rem;
-      margin-left: -50px;
-    }
-    
+  
     .cart-badge {
       position: absolute;
       top: -8px;
       right: -8px;
+    }
+
+    /* ✅ Fondo oscuro para el menú hamburguesa desplegado */
+    .navbar-collapse {
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .navbar-collapse .nav-link {
+      color: #fff !important;
+    }
+
+    .navbar-collapse .nav-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--accent-color) !important;
     }
     
     /* Mejoras de accesibilidad */
@@ -293,12 +291,8 @@
         margin: 1.5rem 0 1rem;
       }
       
-      .search-bar {
-        margin: 0 auto 1.5rem;
-      }
-
       body {
-         padding-top: 70px; /* hamburguesa */
+        padding-top: 70px; /* hamburguesa */
       }
     }
     
@@ -320,7 +314,8 @@
         grid-template-columns: repeat(4, 1fr);
       }
     }
-  </style>
+</style>
+
 </head>
 
 <body>
@@ -388,7 +383,7 @@
   <div class="container">
     <!-- Hero Section -->
     <div class="hero-section">
-      <h1 class="hero-title">Bienvenido a Makura</h1>
+      <h1 class="hero-title">Bienvenido a Makura shop</h1>
       <p class="hero-subtitle">
         Descubre productos increíbles a precios excepcionales. Regístrate para comenzar a comprar.
       </p>
