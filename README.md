@@ -30,7 +30,8 @@ A modern e-commerce platform built with Django that allows users to register, ex
 Marketplace Unewed is a full-featured e-commerce solution built with Django featuring user authentication, product catalog management, shopping cart functionality, and secure checkout process. The platform delivers a seamless user experience with server-side rendering and responsive design.
 
 ## Built With
-Backend Technologies
+
+## Backend Technologies
 Python - Primary backend language
 
 Django 5.2.6 - High-level Python web framework
@@ -53,7 +54,7 @@ CSS3 - Styling and responsive design
 
 Bootstrap 5 - Frontend component library
 
-Development Tools
+## Development Tools
 dj-database-url 3.0.1 - Database configuration
 
 psycopg2-binary 2.9.10 - PostgreSQL adapter
@@ -92,15 +93,15 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the issues page.
 
-Show your support
+## Show your support
 Give a ⭐️ if you like this project!
 
-Acknowledgments
+## Acknowledgments
 Django community for the excellent documentation
 
 Bootstrap team for the responsive components
 
 Render for the deployment platform
 
-📝 License
+## 📝 License
 This project is MIT licensed.
