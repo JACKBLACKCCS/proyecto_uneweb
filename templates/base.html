@@ -296,6 +296,10 @@
       .search-bar {
         margin: 0 auto 1.5rem;
       }
+
+      body {
+         padding-top: 70px; /* hamburguesa */
+      }
     }
     
     /* Estilos específicos para tablets */
@@ -320,7 +324,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 fixed-top">
     <div class="container">
       <!-- Nombre de la empresa -->
       <span class="navbar-brand fw-bold">Marketplace</span>
@@ -384,21 +388,11 @@
   <div class="container">
     <!-- Hero Section -->
     <div class="hero-section">
-      <h1 class="hero-title">Bienvenido a Marketplace</h1>
+      <h1 class="hero-title">Bienvenido a Makura</h1>
       <p class="hero-subtitle">
         Descubre productos increíbles a precios excepcionales. Regístrate para comenzar a comprar.
       </p>
       
-      <div class="search-bar">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Buscar productos...">
-          <button class="btn btn-primary" type="button">
-            <i class="bi bi-search"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
     {% block content %}{% endblock %}
   </div>
 
