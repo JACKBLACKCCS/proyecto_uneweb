@@ -5,11 +5,19 @@ A modern e-commerce platform built with Django that allows users to register, ex
 
 > One paragraph statement about the project.
 
-![Static Badge]https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white https://img.shields.io/badge/html%25205-E34F26?style=for-the-badge&logo=html5&logoColor=white https://img.shields.io/badge/css%25203-1572B6?style=for-the-badge&logo=css3&logoColor=white https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white https://img.shields.io/badge/visual%2520studio%2520code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white https://img.shields.io/badge/linux-FCC624?style=for-the-badge&logo=linux&logoColor=black
-
-https://./app_screenshot.png
+![Python](https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![HTML5](https://img.shields.io/badge/html%205-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css%203-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Git](https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white)
+![VS Code](https://img.shields.io/badge/visual%20studio%20code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
+![Linux](https://img.shields.io/badge/linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
 ![screenshot](./app_screenshot.png)
+
 
 Marketplace Unewed is a full-featured e-commerce solution built with Django featuring user authentication, product catalog management, shopping cart functionality, and secure checkout process. The platform delivers a seamless user experience with server-side rendering and responsive design.
 
