@@ -1,3 +1,5 @@
+# Project Name
+
 Marketplace Unewed
 
 A modern e-commerce platform built with Django that allows users to register, explore products, add items to cart, and complete secure purchases with an intuitive and responsive interface.
@@ -27,7 +29,7 @@ A modern e-commerce platform built with Django that allows users to register, ex
 
 Marketplace Unewed is a full-featured e-commerce solution built with Django featuring user authentication, product catalog management, shopping cart functionality, and secure checkout process. The platform delivers a seamless user experience with server-side rendering and responsive design.
 
-Built With
+## Built With
 Backend Technologies
 Python - Primary backend language
 
@@ -44,7 +46,7 @@ WhiteNoise 6.11.0 - Static file serving
 Pillow 11.3.0 - Image processing library
 
 
-Frontend Technologies
+## Frontend Technologies
 HTML5 - Web structure and semantics
 
 CSS3 - Styling and responsive design
@@ -56,13 +58,17 @@ dj-database-url 3.0.1 - Database configuration
 
 psycopg2-binary 2.9.10 - PostgreSQL adapter
 
-Live Demo
+##Live Demo
 Live Demo Link
 
-Getting Started
-To get a local copy up and running follow these simple steps.
+## Getting Started
 
-Prerequisites
+**This is an example of how you may give instructions on setting up your project locally.**
+**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+
+To get a local copy up and running follow these simple example steps.
+
+ ## Prerequisites
 Python 3.11+
 
 pip (Python package manager)
@@ -72,14 +78,14 @@ PostgreSQL (for production)
 Deployment
 The project is configured for automatic deployment on Render. Each push to the main branch triggers a new deployment.
 
-Authors
+**Authors
 👤 JACKBLACKCCS
 
 GitHub: @JACKBLACKCCS
 
-Project: Marketplace Unewed
+## Project: Marketplace Unewed
 
-🤝 Contributing
+## 🤝 Contributing
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the issues page.
