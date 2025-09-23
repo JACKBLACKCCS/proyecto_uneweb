@@ -4,7 +4,6 @@ A modern e-commerce platform built with Django that allows users to register, ex
 
 
 > One paragraph statement about the project.
-
 ![Python](https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
@@ -15,8 +14,12 @@ A modern e-commerce platform built with Django that allows users to register, ex
 ![GitHub](https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white)
 ![VS Code](https://img.shields.io/badge/visual%20studio%20code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
 ![Linux](https://img.shields.io/badge/linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Render](https://img.shields.io/badge/render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
+![Gunicorn](https://img.shields.io/badge/gunicorn-499848?style=for-the-badge&logo=gunicorn&logoColor=white)
+![Pillow](https://img.shields.io/badge/pillow-8F2B2B?style=for-the-badge&logo=pillow&logoColor=white)
+![WhiteNoise](https://img.shields.io/badge/whitenoise-whitenoise?style=for-the-badge&logo=whitenoise&logoColor=white)
 
-![screenshot](./app_screenshot.png)
+
 
 
 Marketplace Unewed is a full-featured e-commerce solution built with Django featuring user authentication, product catalog management, shopping cart functionality, and secure checkout process. The platform delivers a seamless user experience with server-side rendering and responsive design.
