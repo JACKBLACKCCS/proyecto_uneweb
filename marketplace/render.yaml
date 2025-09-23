@@ -1,0 +1,58 @@
+version: "1"
+
+services:
+
+  - type: web
+    name: proyecto_unewed
+    runtime: python
+    repo: https://github.com/JACKBLACKCCS/proyecto_unewed
+    plan: free
+    envVars:
+      # Base de datos Render
+      - key: DATABASE_URL
+        fromDatabase:
+          name: marketplace
+          property: connectionString
+
+      # Variables de entorno seguras
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.11
+
+    region: oregon
+
+    # Comandos de build - OPTIMIZADO
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --no-input
+      python manage.py migrate
+      # Crear superusuario SOLO después de las migraciones
+      python -c "
+      import os
+      os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'marketplace.settings')
+      import django
+      django.setup()
+      from django.contrib.auth import get_user_model
+      User = get_user_model()
+      if not User.objects.filter(username='Moises').exists():
+          User.objects.create_superuser('Moises', 'velll@gmail.com', '1121candy*')
+          print('✅ Superuser creado exitosamente!')
+      else:
+          print('⚠️ Superuser ya existe')
+      "
+
+    # Comando de inicio
+    startCommand: gunicorn marketplace.wsgi:application
+
+  - type: web
+    name: pgadmin-unewed
+    runtime: docker
+    plan: free
+    dockerfilePath: Dockerfile.pgadmin
+    envVars:
+      - key: PGADMIN_DEFAULT_EMAIL
+        value: admin@unewed.com
+      - key: PGADMIN_DEFAULT_PASSWORD
+        generateValue: true
+    region: oregon
