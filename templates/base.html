@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marketplace</title>
+  <title>{% block title %}Marketplace{% endblock %}</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -25,7 +24,7 @@
     }
     
     body {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
       min-height: 100vh;
       color: var(--text-color);
     }
@@ -52,6 +51,7 @@
       transition: all 0.3s ease;
       border-radius: 5px;
       padding: 0.5rem 1rem !important;
+      margin: 0 0.2rem;
     }
     
     .nav-link:hover {
@@ -230,6 +230,30 @@
       margin-left: -50px;
     }
     
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+    }
+    
+    /* Mejoras de accesibilidad */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    
+    /* Mejora para modo oscuro del sistema */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text-color: #f8f9fa;
+        --text-light: #adb5bd;
+        --dark-color: #f8f9fa;
+      }
+    }
+    
     /* Estilos específicos para móviles */
     @media (max-width: 768px) {
       .hero-title {
@@ -292,44 +316,16 @@
         grid-template-columns: repeat(4, 1fr);
       }
     }
-    
-    /* Mejoras de accesibilidad */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-    
-    /* Mejora para modo oscuro del sistema */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --text-color: #f8f9fa;
-        --text-light: #adb5bd;
-        --dark-color: #f8f9fa;
-      }
-      
-      .card {
-        background: rgba(33, 37, 41, 0.95);
-      }
-      
-      .hero-section {
-        background: rgba(33, 37, 41, 0.95);
-      }
-      
-      .img-product {
-        background: linear-gradient(135deg, #495057, #6c757d);
-      }
-    }
   </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
     <div class="container">
-      <span class="navbar-brand">Marketplace</span>
-      
+      <!-- Nombre de la empresa -->
+      <span class="navbar-brand fw-bold">Marketplace</span>
+
+      <!-- Botón hamburguesa para móviles -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -341,29 +337,45 @@
               <i class="bi bi-house-fill"></i> Inicio
             </a>
           </li>
-          
-          <!-- Menú de usuario simulado -->
+
+          <!-- Botón de vender producto -->
+          {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="bi bi-cart-fill"></i> Carrito
-              <span class="fw-bold ms-1">$0.00</span>
-              <span class="badge bg-danger rounded-pill">0</span>
-            </a>
-          </li>
-        </ul>
-        
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{% url 'create_item' %}">
               <i class="bi bi-plus-circle"></i> Vender Producto
             </a>
           </li>
+          {% endif %}
+        </ul>
+
+        <!-- Icono de carrito con subtotal -->
+        <ul class="navbar-nav ms-auto">
+          {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link position-relative" href="{% url 'view_cart' %}">
+              <i class="bi bi-cart-fill"></i> Carrito
+              <span class="fw-bold ms-1">${{ cart_subtotal }}</span>
+              {% if cart_items_count %}
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{ cart_items_count }}
+              </span>
+              {% endif %}
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">
+              <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+            </a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Registro</a>
+            <a class="nav-link" href="{% url 'register' %}">Registro</a>
           </li>
+          {% endif %}
         </ul>
       </div>
     </div>
@@ -373,7 +385,9 @@
     <!-- Hero Section -->
     <div class="hero-section">
       <h1 class="hero-title">Bienvenido a Marketplace</h1>
-      <p class="hero-subtitle">Descubre productos increíbles a precios excepcionales. Desde tecnología hasta artículos para el hogar, tenemos todo lo que necesitas.</p>
+      <p class="hero-subtitle">
+        Descubre productos increíbles a precios excepcionales. Regístrate para comenzar a comprar.
+      </p>
       
       <div class="search-bar">
         <div class="input-group">
@@ -384,64 +398,8 @@
         </div>
       </div>
     </div>
-    
-    <h2 class="section-title">Productos Destacados</h2>
-    
-    <div class="product-grid">
-      <!-- Producto 1 -->
-      <div class="card">
-        <span class="featured-badge">Destacado</span>
-        <img src="https://via.placeholder.com/300x200/532251/FFFFFF?text=Laptop+Gamer" class="img-product" alt="Laptop Gamer">
-        <div class="card-body">
-          <h5 class="card-title">Laptop Gamer</h5>
-          <p class="card-text">Compacta, potente y lista para cualquier desafío. Esta laptop combina un diseño ultradelgado con un rendimiento impresionante.</p>
-          <div class="d-flex justify-content-between align-items-center mt-auto">
-            <span class="price">$1,299.99</span>
-            <button class="btn btn-primary">Agregar al carrito</button>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Producto 2 -->
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200/0b8793/FFFFFF?text=Smartphone" class="img-product" alt="Smartphone">
-        <div class="card-body">
-          <h5 class="card-title">Smartphone Premium</h5>
-          <p class="card-text">Disfruta de la última tecnología en tu bolsillo. Cámara de alta resolución, pantalla AMOLED y batería de larga duración.</p>
-          <div class="d-flex justify-content-between align-items-center mt-auto">
-            <span class="price">$799.99</span>
-            <button class="btn btn-primary">Agregar al carrito</button>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Producto 3 -->
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200/ff6b6b/FFFFFF?text=Auriculares" class="img-product" alt="Auriculares">
-        <div class="card-body">
-          <h5 class="card-title">Auriculares Inalámbricos</h5>
-          <p class="card-text">Sonido de alta fidelidad y cancelación de ruido activa. Perfectos para trabajar, estudiar o disfrutar de tu música favorita.</p>
-          <div class="d-flex justify-content-between align-items-center mt-auto">
-            <span class="price">$199.99</span>
-            <button class="btn btn-primary">Agregar al carrito</button>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Producto 4 -->
-      <div class="card">
-        <span class="featured-badge">Oferta</span>
-        <img src="https://via.placeholder.com/300x200/343a40/FFFFFF?text=Tablet" class="img-product" alt="Tablet">
-        <div class="card-body">
-          <h5 class="card-title">Tablet Multiusos</h5>
-          <p class="card-text">Ideal para entretenimiento y productividad. Pantalla Full HD, procesador rápido y almacenamiento ampliable.</p>
-          <div class="d-flex justify-content-between align-items-center mt-auto">
-            <span class="price">$449.99</span>
-            <button class="btn btn-primary">Agregar al carrito</button>
-          </div>
-        </div>
-      </div>
-    </div>
+
+    {% block content %}{% endblock %}
   </div>
 
   <footer>
@@ -451,7 +409,8 @@
         <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
         <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
         <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+        <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+        <a href="#" class="text-white"><i class="bi bi-tiktok"></i></a>
       </div>
     </div>
   </footer>
