@@ -1,6 +1,6 @@
 # Project Name
 
-Marketplace Unewed
+Marketplace 
 
 A modern e-commerce platform built with Django that allows users to register, explore products, add items to cart, and complete secure purchases with an intuitive and responsive interface.
 
@@ -75,8 +75,10 @@ pip (Python package manager)
 
 PostgreSQL (for production)
 
-Deployment
+## Deployment
 The project is configured for automatic deployment on Render. Each push to the main branch triggers a new deployment.
+
+## Authors
 
 **Authors
 👤 JACKBLACKCCS
