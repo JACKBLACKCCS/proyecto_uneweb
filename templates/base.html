@@ -19,6 +19,105 @@
       object-fit: contain;
       background-color: #f8f9fa;
     }
+
+    /* ===== ESTILOS RESPONSIVE MEJORADOS ===== */
+    
+    /* Navbar personalizada */
+    .navbar-brand-custom {
+      font-weight: 700;
+      color: #532251 !important;
+    }
+    
+    /* Botones de auth más visibles en móvil */
+    .auth-buttons-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    
+    /* Mejorar visibilidad de enlaces en móvil */
+    .navbar-nav .nav-link {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      margin: 2px 0;
+    }
+    
+    .navbar-nav .nav-link:hover {
+      background-color: rgba(83, 34, 81, 0.1);
+    }
+    
+    /* Botón de hamburguesa más visible */
+    .navbar-toggler {
+      border: 2px solid #532251;
+      padding: 0.25rem 0.5rem;
+    }
+    
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 3px rgba(83, 34, 81, 0.25);
+    }
+    
+    /* ===== MEDIA QUERIES PARA MÓVILES ===== */
+    
+    @media (max-width: 768px) {
+      /* Navbar más compacta en móviles */
+      .navbar {
+        padding: 0.5rem 0;
+      }
+      
+      /* Mostrar botones de auth en móvil */
+      .auth-buttons-mobile {
+        display: flex;
+      }
+      
+      /* Ocultar auth en desktop cuando esté en móvil */
+      .auth-buttons-desktop {
+        display: none !important;
+      }
+      
+      /* Mejorar espaciado del menú colapsado */
+      .navbar-collapse {
+        padding: 1rem 0;
+      }
+      
+      /* Imágenes más pequeñas en móviles */
+      .img-product {
+        height: 150px;
+      }
+      
+      /* Container más ajustado en móviles */
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      /* Ajustes para pantallas muy pequeñas */
+      .navbar-brand {
+        font-size: 1.1rem;
+      }
+      
+      .img-product {
+        height: 120px;
+      }
+      
+      /* Botones más compactos */
+      .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+    }
+    
+    /* Badge del carrito más visible */
+    .badge {
+      font-size: 0.7em;
+      min-width: 18px;
+      height: 18px;
+    }
   </style>
 </head>
 
@@ -26,45 +125,90 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
     <div class="container">
-      <!-- Nombre de la empresa -->
-      <span class="navbar-brand fw-bold">Marketplace</span>
-
-      <!-- Icono de inicio -->
-      <a class="nav-link ms-3" href="{% url 'item_list' %}">
-        <i class="bi bi-house-fill"></i> Inicio
+      <!-- Logo y nombre -->
+      <a class="navbar-brand navbar-brand-custom fw-bold" href="{% url 'item_list' %}">
+        <i class="bi bi-shop"></i> Marketplace
       </a>
 
-      <!-- Icono de carrito con subtotal -->
-      {% if user.is_authenticated %}
-      <a class="nav-link ms-3 position-relative" href="{% url 'view_cart' %}">
-        <i class="bi bi-cart-fill"></i> Carrito
-        <span class="fw-bold ms-1">${{ cart_subtotal }}</span>
-        {% if cart_items_count %}
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-          {{ cart_items_count }}
-        </span>
-        {% endif %}
-      </a>
-      {% endif %}
+      <!-- Botón hamburguesa para móviles -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
+              aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <!-- Menú de usuario -->
-      <div class="collapse navbar-collapse justify-content-end">
-        <ul class="navbar-nav ms-auto">
-          {% if user.is_authenticated %}
-          <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a></li>
-
-          <!-- Botón de vender producto en la navbar -->
+      <!-- Contenido colapsable -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <!-- Menú principal -->
+        <ul class="navbar-nav me-auto">
+          <!-- Icono de inicio -->
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'create_item' %}">
-              <i class="bi bi-plus-circle"></i> Vender Producto
+            <a class="nav-link" href="{% url 'item_list' %}">
+              <i class="bi bi-house-fill"></i> Inicio
             </a>
           </li>
 
-          {% else %}
-          <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Registro</a></li>
+          <!-- Icono de carrito con subtotal -->
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="{% url 'view_cart' %}">
+              <i class="bi bi-cart-fill"></i> Carrito
+              <span class="fw-bold ms-1">${{ cart_subtotal }}</span>
+              {% if cart_items_count %}
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{ cart_items_count }}
+              </span>
+              {% endif %}
+            </a>
+          </li>
           {% endif %}
         </ul>
+
+        <!-- Menú de usuario - VERSIÓN DESKTOP -->
+        <ul class="navbar-nav auth-buttons-desktop">
+          {% if user.is_authenticated %}
+            <!-- Botón de vender producto -->
+            <li class="nav-item">
+              <a class="nav-link btn btn-outline-primary btn-sm me-2" href="{% url 'create_item' %}">
+                <i class="bi bi-plus-circle"></i> Vender
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-outline-danger btn-sm" href="{% url 'logout' %}">
+                <i class="bi bi-box-arrow-right"></i> Salir
+              </a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link btn btn-primary btn-sm me-2" href="{% url 'login' %}">
+                <i class="bi bi-box-arrow-in-right"></i> Login
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-success btn-sm" href="{% url 'register' %}">
+                <i class="bi bi-person-plus"></i> Registro
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <!-- Menú de usuario - VERSIÓN MÓVIL (fuera del collapse) -->
+      <div class="auth-buttons-mobile d-lg-none">
+        {% if user.is_authenticated %}
+          <a class="btn btn-outline-primary w-100" href="{% url 'create_item' %}">
+            <i class="bi bi-plus-circle"></i> Vender Producto
+          </a>
+          <a class="btn btn-outline-danger w-100" href="{% url 'logout' %}">
+            <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+          </a>
+        {% else %}
+          <a class="btn btn-primary w-100" href="{% url 'login' %}">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </a>
+          <a class="btn btn-success w-100" href="{% url 'register' %}">
+            <i class="bi bi-person-plus"></i> Registro
+          </a>
+        {% endif %}
       </div>
     </div>
   </nav>
@@ -73,14 +217,33 @@
     {% block content %}{% endblock %}
   </div>
 
-  <footer class="text-center">
-    <div style="background-color:#f8f9fa; padding:10px; margin-top:20px;">
-      <p>  Marketplace &copy; 2025 - Todos los derechos reservados</p>
+  <footer class="text-center mt-5">
+    <div style="background-color:#f8f9fa; padding:15px; margin-top:30px;">
+      <p class="mb-0">Marketplace &copy; 2025 - Todos los derechos reservados</p>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Script para mejorar experiencia móvil -->
+  <script>
+    // Cerrar menú automáticamente al hacer clic en un enlace (solo móviles)
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-link');
+      const navbarCollapse = document.getElementById('navbarContent');
+      
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 992) { // Solo en móviles
+            const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+              toggle: false
+            });
+            bsCollapse.hide();
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
-
