@@ -58,7 +58,7 @@ dj-database-url 3.0.1 - Database configuration
 
 psycopg2-binary 2.9.10 - PostgreSQL adapter
 
-##Live Demo
+## Live Demo
 Live Demo Link
 
 ## Getting Started
