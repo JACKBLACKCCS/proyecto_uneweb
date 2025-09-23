@@ -6,3 +6,4 @@ urlpatterns = [
     path('create/', views.create_item, name='create_item'),  # <- aquí es donde carga su producto
 ]
 
+# {% url 'item_list' %} → redirige a la lista de productos (tu “inicio” real del marketplace).
