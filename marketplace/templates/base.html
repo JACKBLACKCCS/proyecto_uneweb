@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
- <style>
+  <style>
     :root {
       --primary-color: #532251;
       --secondary-color: #0b8793;
@@ -18,25 +18,27 @@
       --text-color: #333;
       --text-light: #6c757d;
     }
-    
+
     * {
       font-family: 'Poppins', sans-serif;
     }
-    
+
     body {
       background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
       min-height: 100vh;
       color: var(--text-color);
       padding-top: 90px;
+      display: flex;
+      flex-direction: column;
     }
-    
+
     .navbar {
       background: rgba(255, 255, 255, 0.95) !important;
       backdrop-filter: blur(10px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       padding: 0.8rem 0;
     }
-    
+
     .navbar-brand {
       font-weight: 700;
       font-size: 1.5rem;
@@ -45,7 +47,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    
+
     .nav-link {
       font-weight: 500;
       color: var(--dark-color) !important;
@@ -54,103 +56,37 @@
       padding: 0.5rem 1rem !important;
       margin: 0 0.2rem;
     }
-    
+
     .nav-link:hover {
       background-color: rgba(83, 34, 81, 0.1);
       color: var(--primary-color) !important;
       transform: translateY(-2px);
     }
-    
+
     .nav-link i {
       margin-right: 5px;
     }
-    
-    .badge {
-      font-size: 0.7rem;
-    }
-    
+
     .container {
       max-width: 1200px;
     }
-    
+
     .card {
       border: none;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
       margin-bottom: 2rem;
-      height: 100%;
+      transition: all 0.3s ease;
     }
-    
+
     .card:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     }
-    
-    .img-product {
-      width: 100%;
-      height: 200px;
-      object-fit: contain;
-      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-      padding: 15px;
-    }
-    
-    .card-body {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-    
-    .card-title {
-      font-weight: 600;
-      color: var(--primary-color);
-      margin-bottom: 0.5rem;
-    }
-    
-    .card-text {
-      color: var(--text-light);
-      line-height: 1.6;
-      flex-grow: 1;
-    }
-    
-    .price {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--accent-color);
-    }
-    
-    .btn-primary {
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      border: none;
-      border-radius: 50px;
-      padding: 0.5rem 1.5rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(83, 34, 81, 0.3);
-    }
-    
-    .btn-outline-primary {
-      border-color: var(--primary-color);
-      color: var(--primary-color);
-      border-radius: 50px;
-      padding: 0.5rem 1.5rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .btn-outline-primary:hover {
-      background-color: var(--primary-color);
-      transform: translateY(-2px);
-    }
-    
+
     .hero-section {
       background: rgba(255, 255, 255, 0.95);
       border-radius: 20px;
@@ -159,7 +95,7 @@
       text-align: center;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
-    
+
     .hero-title {
       font-weight: 700;
       font-size: 2.5rem;
@@ -169,59 +105,32 @@
       background-clip: text;
       margin-bottom: 1rem;
     }
-    
+
     .hero-subtitle {
       font-size: 1.2rem;
       color: var(--text-light);
       max-width: 700px;
       margin: 0 auto 2rem;
     }
-    
-    .section-title {
-      font-weight: 600;
-      color: white;
-      margin: 2rem 0 1.5rem;
-      text-align: center;
-      font-size: 2rem;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    
+
     footer {
-      margin-top: 3rem;
+      margin-top: auto;
       background: rgba(0, 0, 0, 0.2);
       color: white;
       padding: 1.5rem 0;
       text-align: center;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    
-    .featured-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: var(--accent-color);
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-  
-    .cart-badge {
-      position: absolute;
-      top: -8px;
-      right: -8px;
+
+    footer .mt-2 {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
     }
 
     /* ✅ Fondo oscuro para el menú hamburguesa desplegado */
     .navbar-collapse {
-      background: rgba(150, 148, 148, 0.85);
+      background: rgba(0, 0, 0, 0.85);
       border-radius: 10px;
       padding: 10px;
     }
@@ -234,98 +143,19 @@
       background: rgba(255, 255, 255, 0.1);
       color: var(--accent-color) !important;
     }
-    
-    /* Mejoras de accesibilidad */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-    
-    /* Mejora para modo oscuro del sistema */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --text-color: #f8f9fa;
-        --text-light: #adb5bd;
-        --dark-color: #f8f9fa;
-      }
-    }
-    
-    /* Estilos específicos para móviles */
-    @media (max-width: 768px) {
-      .hero-title {
-        font-size: 2rem;
-      }
-      
-      .hero-subtitle {
-        font-size: 1rem;
-      }
-      
-      .product-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-      
-      .navbar-nav {
-        text-align: center;
-        margin-top: 1rem;
-      }
-      
-      .nav-link {
-        padding: 0.5rem !important;
-        margin: 0.2rem 0;
-      }
-      
-      .card {
-        margin-bottom: 1.5rem;
-      }
-      
-      .hero-section {
-        padding: 2rem 1rem;
-        margin: 1rem 0;
-      }
-      
-      .section-title {
-        font-size: 1.5rem;
-        margin: 1.5rem 0 1rem;
-      }
-      
-      body {
-        padding-top: 70px; /* hamburguesa */
-      }
-    }
-    
-    /* Estilos específicos para tablets */
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-      }
-      
-      .hero-title {
-        font-size: 2.2rem;
-      }
-    }
-    
-    /* Estilos para pantallas muy grandes */
-    @media (min-width: 1400px) {
-      .product-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-</style>
 
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2rem; }
+      .hero-subtitle { font-size: 1rem; }
+      body { padding-top: 70px; }
+    }
+  </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
-      <!-- Nombre de la empresa -->
       <span class="navbar-brand fw-bold">Marketplace</span>
-
-      <!-- Botón hamburguesa para móviles -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -337,8 +167,6 @@
               <i class="bi bi-house-fill"></i> Inicio
             </a>
           </li>
-
-          <!-- Botón de vender producto -->
           {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'create_item' %}">
@@ -348,7 +176,6 @@
           {% endif %}
         </ul>
 
-        <!-- Icono de carrito con subtotal -->
         <ul class="navbar-nav ms-auto">
           {% if user.is_authenticated %}
           <li class="nav-item">
@@ -362,19 +189,14 @@
               {% endif %}
             </a>
           </li>
-          
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">
               <i class="bi bi-box-arrow-right"></i> Cerrar sesión
             </a>
           </li>
           {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Registro</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Registro</a></li>
           {% endif %}
         </ul>
       </div>
@@ -382,13 +204,14 @@
   </nav>
 
   <div class="container">
-    <!-- Hero Section -->
     <div class="hero-section">
       <h1 class="hero-title">Bienvenido a Makura shop</h1>
       <p class="hero-subtitle">
         Descubre productos increíbles a precios excepcionales. Regístrate para comenzar a comprar.
       </p>
-      
+    </div>
+
+    <!-- ✅ Aquí ya queda libre para que cada página meta su contenido -->
     {% block content %}{% endblock %}
   </div>
 
@@ -396,15 +219,14 @@
     <div class="container">
       <p>Marketplace &copy; 2025 - Todos los derechos reservados</p>
       <div class="mt-2">
-        <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
-        
-        <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
-       
+        <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
         <a href="#" class="text-white"><i class="bi bi-tiktok"></i></a>
       </div>
     </div>
   </footer>
 
+ 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
