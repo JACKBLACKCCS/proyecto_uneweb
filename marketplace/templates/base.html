@@ -128,7 +128,7 @@
       gap: 1rem;
     }
 
-    /* ✅ Fondo oscuro para el menú hamburguesa desplegado */
+    
     .navbar-collapse {
       background: rgba(0, 0, 0, 0.85);
       border-radius: 10px;
@@ -150,6 +150,8 @@
       body { padding-top: 70px; }
     }
   </style>
+</head>
+
 </head>
 
 <body>
@@ -181,12 +183,14 @@
           <li class="nav-item">
             <a class="nav-link position-relative" href="{% url 'view_cart' %}">
               <i class="bi bi-cart-fill"></i> Carrito
-              <span class="fw-bold ms-1">${{ cart_subtotal }}</span>
-              {% if cart_items_count %}
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                {{ cart_items_count }}
-              </span>
-              {% endif %}
+              <span class="fw-bold ms-1">${{ cart_subtotal|default:"0.00" }}</span>
+              {% with cart_count=cart_items_count|default:0 %}
+                {% if cart_count > 0 %}
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {{ cart_count }}
+                </span>
+                {% endif %}
+              {% endwith %}
             </a>
           </li>
           <li class="nav-item">
@@ -211,7 +215,7 @@
       </p>
     </div>
 
-    <!-- ✅ Aquí ya queda libre para que cada página meta su contenido -->
+    <!-- Contenido específico de cada página -->
     {% block content %}{% endblock %}
   </div>
 
@@ -226,10 +230,6 @@
     </div>
   </footer>
 
- 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-
 </body>
-
 </html>
