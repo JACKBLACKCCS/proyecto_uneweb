@@ -35,6 +35,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='tu-clave-secreta-aqui-cambiar
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
+#DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true' --- prueba
+
 
 # ALLOWED_HOSTS configuration
 ALLOWED_HOSTS = []
