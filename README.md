@@ -26,9 +26,6 @@ A modern e-commerce platform built with Django that allows users to register, ex
 
 
 
-
-Marketplace Unewed is a full-featured e-commerce solution built with Django featuring user authentication, product catalog management, shopping cart functionality, and secure checkout process. The platform delivers a seamless user experience with server-side rendering and responsive design.
-
  ## Key Features
  
 ✅ User registration and authentication
