@@ -1,6 +1,6 @@
-# Project Name
 
-Marketplace 
+
+## Marketplace 
 
 A modern e-commerce platform built with Django that allows users to register, explore products, add items to cart, and complete secure purchases with an intuitive and responsive interface.
 
@@ -26,82 +26,98 @@ A modern e-commerce platform built with Django that allows users to register, ex
 
 
 
+ ## Key Features
+ 
+✅ User registration and authentication
 
-Marketplace Unewed is a full-featured e-commerce solution built with Django featuring user authentication, product catalog management, shopping cart functionality, and secure checkout process. The platform delivers a seamless user experience with server-side rendering and responsive design.
+🛒 Interactive shopping cart
+
+📱 Responsive design with Bootstrap
+
+🗄️ Dual database strategy (SQLite/PostgreSQL)
+
+🚀 Automatic deployment on Render
 
 ## Built With
 
 ## Backend Technologies
+
 Python - Primary backend language
 
 Django 5.2.6 - High-level Python web framework
 
-PostgreSQL - Production database (via psycopg2)
+Gunicorn - WSGI HTTP server
 
-SQLite - Development database
-
-Gunicorn 23.0.0 - WSGI HTTP server
-
-WhiteNoise 6.11.0 - Static file serving
-
-Pillow 11.3.0 - Image processing library
-
+Pillow - Image processing library
 
 ## Frontend Technologies
+
 HTML5 - Web structure and semantics
 
 CSS3 - Styling and responsive design
 
 Bootstrap 5 - Frontend component library
 
-## Development Tools
-dj-database-url 3.0.1 - Database configuration
+## Database & Deployment
+PostgreSQL - Production database (Render)
 
-psycopg2-binary 2.9.10 - PostgreSQL adapter
+SQLite - Development database
 
-## Live Demo
+WhiteNoise - Static files serving
+
+dj-database-url - Database configuration
+
+🗄️ ##  Database Strategy
+This project follows a development-to-production database approach:
+
+## Development (Local)
+Database: SQLite3
+
+Purpose: Rapid development and testing
+
+Advantage: Zero configuration, fast iteration
+
+## Production (Render)
+Database: PostgreSQL
+
+Purpose: High performance and reliability
+
+Advantage: Automatic configuration, production-ready
+
+##Live Demo
 Live Demo Link
 
 ## Getting Started
+To get a local copy up and running follow these simple steps.
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-To get a local copy up and running follow these simple example steps.
-
- ## Prerequisites
+## Prerequisites
 Python 3.11+
 
 pip (Python package manager)
 
-PostgreSQL (for production)
-
-## Deployment
-The project is configured for automatic deployment on Render. Each push to the main branch triggers a new deployment.
-
-## Authors
-
-**Authors
-👤 JACKBLACKCCS
+## 👥 Author
+👤 Moisés A. Velásquez Muñoz
 
 GitHub: @JACKBLACKCCS
 
-## Project: Marketplace Unewed
+Project: Marketplace Unewed
 
 ## 🤝 Contributing
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the issues page.
 
-## Show your support
+## ⭐ Show your support
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
+## 🙏 Acknowledgments
 Django community for the excellent documentation
 
 Bootstrap team for the responsive components
 
-Render for the deployment platform
+Render for the seamless deployment platform
+
+PostgreSQL community for robust database management
 
 ## 📝 License
 This project is MIT licensed.
