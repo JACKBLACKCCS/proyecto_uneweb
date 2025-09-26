@@ -95,7 +95,7 @@ Python 3.11+
 
 pip (Python package manager)
 
-##👥 Author
+## 👥 Author
 👤 Moisés A. Velásquez Muñoz
 
 GitHub: @JACKBLACKCCS
