@@ -1,28 +1,23 @@
-
-# Django
-*.log
-*.pot
-*.pyc
-__pycache__/
-db.sqlite3
-echo "db.sqlite3"
-media/
-
-# Virtual environment
-venv/
-env/
-ENV/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Environment variables
-.env
-.env.local
+# Contenido mínimo para .gitignore
+(
+echo # Django
+echo *.pyc
+echo __pycache__/
+echo *.pyo
+echo *.pyd
+echo .Python
+echo.
+echo # Environments
+echo venv/
+echo env/
+echo .env
+echo.
+echo # Database
+echo *.sqlite3
+echo.
+echo # Media files
+echo media/
+echo.
+echo # Static files (en producción se recolectan)
+echo staticfiles/
+) > .gitignore
