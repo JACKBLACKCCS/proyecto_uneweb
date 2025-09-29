@@ -65,13 +65,13 @@ if DEBUG:
 
 # Application definition
 INSTALLED_APPS = [
-    #'cloudinary_storage',
+    'cloudinary_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    #'cloudinary',
+    'cloudinary',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
       # Important for Cloudinary
@@ -85,25 +85,24 @@ INSTALLED_APPS = [
 
 #CONFIGURACIÓN DE CLOUDINARY
 
-#   CLOUDINARY_STORAGE = {
-    #   'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME', ''),
-    #   'API_KEY': os.environ.get('CLOUDINARY_API_KEY', ''),
-    #    ' API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', ''),
-    #   }
+CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME', ''),
+        'API_KEY': os.environ.get('CLOUDINARY_API_KEY', ''),
+        'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', ''),
+   }
 
 # Configuración directa de Cloudinary (adicional)
-#   cloudinary.config(
-    #   cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME', ''),
-    #   api_key=os.environ.get('CLOUDINARY_API_KEY', ''),
-    #   api_secret=os.environ.get('CLOUDINARY_API_SECRET', ''),
-    #   secure=True
-#   )
+cloudinary.config(
+       cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME', ''),
+       api_key=os.environ.get('CLOUDINARY_API_KEY', ''),
+       api_secret=os.environ.get('CLOUDINARY_API_SECRET', ''),
+       secure=True
+   )
 
 
 
-#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage' #Solo media
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'#Solo static
 
 
 MIDDLEWARE = [
@@ -203,7 +202,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
