@@ -19,6 +19,10 @@ def register_view(request):
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(data=request.POST)
+
+        print("🔍 DEBUG LOGIN")
+        print(f"🔍 Formulario válido: {form.is_valid()}")
+        
         if form.is_valid():
             user = form.get_user()
             login(request, user)

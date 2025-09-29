@@ -13,6 +13,13 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+from dotenv import load_dotenv
+load_dotenv()  # Cargar variables del .env
+
 
 
 
@@ -35,7 +42,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='tu-clave-secreta-aqui-cambiar
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-#DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true' --- prueba
+#DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true' 
 
 
 # ALLOWED_HOSTS configuration
@@ -57,13 +64,16 @@ if DEBUG:
 
 # Application definition
 INSTALLED_APPS = [
+    'cloudinary_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary',
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic',  # Important for WhiteNoise
+    'whitenoise.runserver_nostatic',
+      # Important for Cloudinary
     
     'item',
     'conversation', 
@@ -71,6 +81,27 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     # nueva app
 ]
+
+#CONFIGURACIÓN DE CLOUDINARY
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME', ''),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY', ''),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', ''),
+    }
+
+# Configuración directa de Cloudinary (adicional)
+cloudinary.config(
+    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME', ''),
+    api_key=os.environ.get('CLOUDINARY_API_KEY', ''),
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET', ''),
+    secure=True
+)
+
+#Usar Cloudinary para archivos media
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 MIDDLEWARE = [
 
@@ -114,7 +145,8 @@ WSGI_APPLICATION = 'marketplace.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 
-#  CONFIGURACIÓN CORRECTA PARA RENDER
+#  Database para Render configuration
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

@@ -11,12 +11,26 @@
             <div class="card shadow-sm">
                 <div class="card-body">
                     <h3 class="card-title mb-4 text-center">Registro de Usuario</h3>
+                    
+                    <!-- Mostrar mensajes de error/success -->
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                    
                     <form method="post">
                         {% csrf_token %}
                         
                         <div class="mb-3">
                             <label for="id_username" class="form-label">Usuario</label>
                             <input type="text" name="username" class="form-control" id="id_username" required>
+                        </div>
+                        
+                        <!-- ✅ AÑADIR ESTE CAMPO QUE FALTABA -->
+                        <div class="mb-3">
+                            <label for="id_email" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" id="id_email" required>
                         </div>
                         
                         <div class="mb-3">
