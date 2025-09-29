@@ -4,5 +4,6 @@ gunicorn==23.0.0
 whitenoise==6.11.0 
 psycopg2-binary==2.9.10 
 Pillow==11.3.0   
-cloudinary
-django-cloudinary-storage
+cloudinary==1.44.1
+django-cloudinary-storage==0.3.0
+python-dotenv==1.0.1
