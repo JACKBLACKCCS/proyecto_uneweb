@@ -12,14 +12,15 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 import os
 from pathlib import Path
-import dj_database_url
+
+from dotenv import load_dotenv
+load_dotenv()
+
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-from dotenv import load_dotenv
-load_dotenv()  # Cargar variables del .env
-
+import dj_database_url
 
 
 
@@ -98,9 +99,11 @@ cloudinary.config(
     secure=True
 )
 
-#Usar Cloudinary para archivos media
+
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 MIDDLEWARE = [
@@ -221,6 +224,7 @@ LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 
 # Additional configuration for production
