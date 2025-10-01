@@ -41,7 +41,7 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 
 # ALLOWED_HOSTS configuration
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['MoisesV.pythonanywhere.com', 'localhost', '127.0.0.1' ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
