@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404 
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Cart, CartItem
 from item.models import Item
 from django.contrib.auth.decorators import login_required
@@ -16,7 +16,7 @@ def view_cart(request):
 
     # Calcula el subtotal de cada producto (precio x cantidad)
     for item in items:
-        item.subtotal = item.get_subtotal  
+        item.subtotal = item.get_subtotal
 
     # Calcula el total de la compra sumando todos los subtotales
     total = sum(item.subtotal for item in items)
@@ -35,12 +35,12 @@ def add_to_cart(request, item_id):
     cart, created = Cart.objects.get_or_create(user=request.user)
     item = get_object_or_404(Item, id=item_id)
     cart_item, created = CartItem.objects.get_or_create(cart=cart, item=item)
-    
+
     # Si ya existía en el carrito, aumenta la cantidad
     if not created:
         cart_item.quantity += 1
         cart_item.save()
-    
+
     return redirect('view_cart')
 
 
@@ -76,7 +76,7 @@ def decrease_quantity(request, item_id):
     else:
         # Si solo queda 1 y se resta, el producto se elimina del carrito
         cart_item.delete()
-    
+
     return redirect('view_cart')
 
 
@@ -92,7 +92,7 @@ def checkout(request):
 
     # Calcular subtotal para cada item
     for item in items:
-        item.subtotal = item.get_subtotal  
+        item.subtotal = item.get_subtotal
 
     # Calcular total
     total = sum(item.subtotal for item in items)

@@ -4,39 +4,62 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h2 class="mb-4">Resumen de tu compra</h2>
+    <h2 class="mb-4 text-center">Resumen de tu compra</h2>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Producto</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Subtotal</th>
-            </tr>
-        </thead>
-        <tbody>
+    <!-- Lista de productos en tarjetas -->
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
             {% for item in items %}
-            <tr>
-                <td>{{ item.item.name }}</td>
-                <td>${{ item.item.price }}</td>
-                <td>{{ item.quantity }}</td>
-                <td>${{ item.subtotal }}</td>
-            </tr>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <!-- Producto -->
+                        <div class="col-7">
+                            <h6 class="card-title mb-1">{{ item.item.name }}</h6>
+                            <small class="text-muted">Precio: ${{ item.item.price }}</small>
+                        </div>
+                        
+                        <!-- Cantidad y Subtotal -->
+                        <div class="col-5 text-end">
+                            <div class="mb-1">
+                                <strong>Cantidad:</strong> {{ item.quantity }}
+                            </div>
+                            <div>
+                                <strong>Subtotal:</strong> ${{ item.subtotal }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
-        </tbody>
-    </table>
+        </div>
+    </div>
 
-    <h4 class="mt-3">Total a pagar: <span class="text-success">${{ total }}</span></h4>
+    <!-- Total destacado -->
+    <div class="row justify-content-center mt-4">
+        <div class="col-12 col-md-8">
+            <div class="card border-success">
+                <div class="card-body text-center py-4">
+                    <h3 class="card-title text-success mb-0">
+                        Total a pagar: ${{ total }}
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Botón de confirmar pago -->
-    <div class="mt-4">
-        <a href="#" class="btn btn-lg btn-success">
-            <i class="bi bi-credit-card"></i> Confirmar Pago
-        </a>
-        <a href="{% url 'view_cart' %}" class="btn btn-secondary btn-lg ms-2">
-            <i class="bi bi-arrow-left"></i> Volver al Carrito
-        </a>
+    <!-- Botones responsivos -->
+    <div class="row justify-content-center mt-4">
+        <div class="col-12 col-md-8">
+            <div class="d-grid gap-2">
+                <a href="#" class="btn btn-success btn-lg py-3">
+                    <i class="bi bi-credit-card"></i> Confirmar Pago
+                </a>
+                <a href="{% url 'view_cart' %}" class="btn btn-secondary btn-lg py-3">
+                    <i class="bi bi-arrow-left"></i> Volver al Carrito
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

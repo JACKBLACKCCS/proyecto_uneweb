@@ -4,9 +4,9 @@ from . import views
 urlpatterns = [
   # Crud del carrito =
 
- # READ - Ver carrito :  
+ # READ - Ver carrito :
     path('view/', views.view_cart, name='view_cart'),
-    
+
  # CREATE - Agregar producto al carrito
     path('add/<int:item_id>/', views.add_to_cart, name='add_to_cart'),
 
@@ -21,5 +21,5 @@ urlpatterns = [
 
  #  CHECKOUT (Pago)
     path('checkout/', views.checkout, name='checkout'),
-    
+
     ]

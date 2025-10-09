@@ -37,7 +37,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='tu-clave-secreta-aqui-cambiar
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-#DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true' 
+#DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
 
 
 # ALLOWED_HOSTS configuration
@@ -52,14 +52,14 @@ if RENDER_EXTERNAL_HOSTNAME:
 if DEBUG:
     ALLOWED_HOSTS.extend(['localhost', '127.0.0.1'])
 
-    
+
 
 
 # Application definition
 
 # Application definition
 INSTALLED_APPS = [
-  
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -67,11 +67,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
 
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic',
-      
-    
+     #'whitenoise.runserver_nostatic',
+
+
     'item',
-    'conversation', 
+    'conversation',
     'accounts',
     'cart.apps.CartConfig',
     # nueva app
@@ -83,7 +83,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
 
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # WhiteNoise for static files
+     #'whitenoise.middleware.WhiteNoiseMiddleware',  # WhiteNoise for static files
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -106,7 +106,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'cart.context_processors.cart_info',
-  
+
             ],
         },
     },
@@ -176,10 +176,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'#Solo static
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'#Solo static
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'staticfiles'),
 ]
 
 # STATICFILES_DIRS = [BASE_DIR / 'static']
@@ -207,7 +207,7 @@ if not DEBUG:
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
     X_FRAME_OPTIONS = 'DENY'
-    
+
     # Configure WhiteNoise for media files in production
     WHITENOISE_ROOT = os.path.join(BASE_DIR, 'media')
-    
+
