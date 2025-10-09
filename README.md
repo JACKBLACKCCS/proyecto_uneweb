@@ -36,7 +36,7 @@ A modern e-commerce platform built with Django that allows users to register, ex
 
 🗄️ Dual database strategy (SQLite/PostgreSQL)
 
-🚀 Automatic deployment on Render
+🚀 Deployed on PythonAnywhere
 
 ## Built With
 
@@ -45,8 +45,6 @@ A modern e-commerce platform built with Django that allows users to register, ex
 Python - Primary backend language
 
 Django 5.2.6 - High-level Python web framework
-
-Gunicorn - WSGI HTTP server
 
 Pillow - Image processing library
 
@@ -59,13 +57,12 @@ CSS3 - Styling and responsive design
 Bootstrap 5 - Frontend component library
 
 ## Database & Deployment
-PostgreSQL - Production database (Render)
+
+PostgreSQL - Production database (PythonAnywhere)
 
 SQLite - Development database
 
-WhiteNoise - Static files serving
-
-dj-database-url - Database configuration
+PythonAnywhere - Production hosting platform
 
 🗄️ ##  Database Strategy
 This project follows a development-to-production database approach:
@@ -77,20 +74,23 @@ Purpose: Rapid development and testing
 
 Advantage: Zero configuration, fast iteration
 
-## Production (Render)
+## Production (PythonAnywhere)
 Database: PostgreSQL
 
 Purpose: High performance and reliability
 
-Advantage: Automatic configuration, production-ready
+Advantage: Professional hosting environment
 
-##Live Demo
+## Live Demo
+
 Live Demo Link
 
 ## Getting Started
+
 To get a local copy up and running follow these simple steps.
 
 ## Prerequisites
+
 Python 3.11+
 
 pip (Python package manager)
@@ -100,22 +100,25 @@ pip (Python package manager)
 
 GitHub: @JACKBLACKCCS
 
-Project: Marketplace Unewed
+Project: Marketplace Uneweb
 
 ## 🤝 Contributing
+
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the issues page.
 
 ## ⭐ Show your support
+
 Give a ⭐️ if you like this project!
 
 ## 🙏 Acknowledgments
+
 Django community for the excellent documentation
 
 Bootstrap team for the responsive components
 
-Render for the seamless deployment platform
+PythonAnywhere for the reliable hosting platform
 
 PostgreSQL community for robust database management
 
