@@ -19,6 +19,7 @@ A modern e-commerce platform built with Django that allows users to register, ex
 ![GitHub](https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white)
 ![VS Code](https://img.shields.io/badge/visual%20studio%20code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
 ![Linux](https://img.shields.io/badge/linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![pythonanywhere](https://img.shields.io/badge/pythonanywhere-5A9BD3?style=for-the-badge&logo=python&logoColor=white)
 ![Render](https://img.shields.io/badge/render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
 ![Gunicorn](https://img.shields.io/badge/gunicorn-499848?style=for-the-badge&logo=gunicorn&logoColor=white)
 ![Pillow](https://img.shields.io/badge/pillow-8F2B2B?style=for-the-badge&logo=pillow&logoColor=white)
